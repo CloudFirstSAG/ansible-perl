@@ -12,18 +12,18 @@
   shell: curl -L http://cpanmin.us | perl - App::cpanminus
 
 - name: Update ExtUtils::MakeMaker
-  cpanm: ExtUtils::MakeMaker
+  cpanm: name=ExtUtils::MakeMaker
 
 - name: Update File::Spec
-  cpanm: File::Spec
+  cpanm: name=File::Spec
 
 - name: Update File::Find::Rule
-  cpanm: File::Find::Rule
+  cpanm: name=File::Find::Rule
 
 - name: Update File::Basename
-  cpanm: File::Basename
+  cpanm: name=File::Basename
 
 - name: Update NetAddr::IP
-  cpanm: NetAddr::IP
+  cpanm: name=NetAddr::IP
 
 
