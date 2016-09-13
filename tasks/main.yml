@@ -1,6 +1,6 @@
 ---
 - name: Package prerequisites for Perl
-  apt: name=make state=present
+  apt: name={{ item }} state=present
   with_items:
     - make
     - gcc
@@ -10,25 +10,20 @@
 
 - name: Install cpanminus
   shell: curl -L http://cpanmin.us | perl - App::cpanminus
-  register: install_cpanm
-  changed_when: "'is up to date' not in install_cpanm.stdout"
 
 - name: Update ExtUtils::MakeMaker
-  shell: cpanm ExtUtils::MakeMaker
-  register: update_extutils_makemaker
-  changed_when: "'is up to date' not in update_extutils_makemaker.stdout"
+  cpanm: ExtUtils::MakeMaker
 
 - name: Update File::Spec
-  shell: cpanm File::Spec
-  register: update_file_spec
-  changed_when: "'is up to date' not in update_file_spec.stdout"
+  cpanm: File::Spec
 
-- name: Install Carton
-  shell: cpanm --dev Carton --mirror https://cpan.metacpan.org/
-  register: install_carton
-  changed_when: "'is up to date' not in install_carton.stdout"
+- name: Update File::Find::Rule
+  cpanm: File::Find::Rule
 
-- name: Install URI
-  shell: cpanm URI
-  register: install_uri
-  changed_when: "'is up to date' not in install_uri.stdout"
+- name: Update File::Basename
+  cpanm: File::Basename
+
+- name: Update NetAddr::IP
+  cpanm: NetAddr::IP
+
+
