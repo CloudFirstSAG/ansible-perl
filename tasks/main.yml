@@ -17,6 +17,9 @@
 - name: Update File::Spec
   cpanm: name=File::Spec
 
+- name: Update File::Path
+  cpanm: name=File::Path
+
 - name: Update File::Find::Rule
   cpanm: name=File::Find::Rule
 
